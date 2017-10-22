@@ -1,0 +1,90 @@
+<html>
+  <head>
+     <title>What They Preach</title>
+     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0;width=device-width;user-scalable=no;"></meta>
+     <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css"/>
+     <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+     <link rel="stylesheet" type="text/css" href="styles/force.css"/>
+     <!--<script id="splash" type="text/template" charset="utf-8" src="templates/splash.template"></script>-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <span class="brand" href="index.html">What They Preach</span>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a  href="http://civic.mit.edu/blog/natematias/measuring-what-they-preach-comparing-religious-sermons-across-cultures">Read About It</a></li>
+              <!---<li><a href="http://www.parkstreet.org">Park Street Church</a></li>
+              <li ><a href="http://eden-cambridge.org">Eden Baptist Church</a></li>-->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Contents -->
+    <div class="container" id="main_container" align="center">
+      <div class="hero-unit">
+        <h1>What They Preach</h1>
+        <h3>by <a href="http://twitter.com/natematias">J. Nathan Matias</a>, MT Media Lab <a href="http://civic.mit.edu/user/natematias">Center for Civic Media</a></h3>
+          <hr/>
+          <p align="left">What parts of the Bible do Christian speakers focus on? This datavisualisation compares my two churches over more than ten years. Both <a href="http://eden-cambridge.org">Eden Baptist</a> (Cambridge UK) and <a href="http://parkstreet.org">Park Street</a> (Boston USA) are prominent evangelical churches in university towns. They both help shape the agenda of evangelical Christianity within their countries.</p>
+          <p align="left"> What's the point? I want to do a big data analysis of <a href="http://civic.mit.edu/blog/natematias/measuring-what-they-preach-comparing-religious-sermons-across-cultures">how religious texts are used across cultures</a>. Previous religious text visualization projects include my <a href="http://www.flickr.com/photos/natematias/5958747371/">Audio Psalter</a> and <a href="http://www.flickr.com/photos/natematias/4657537109/">religious poetry reading</a> projects.</p>
+
+          <p align="left">To create the visualization, I scraped data about every Sunday sermon recording from the Eden and Park Street websites. I collected book and chapter information from a Creative Commons edition of the Bible. Sometimes, sermons just reference a book. In those cases, books containing more than 5 chapters were omitted.</p>
+          <p><strong>Hover over a chapter</strong> to see the number of sermons. <strong>Click on a chapter</strong> to read the text in question. Or <a href="http://civic.mit.edu/blog/natematias/measuring-what-they-preach-comparing-religious-sermons-across-cultures">Read my analysis</a>.</p>
+      </div>
+      <table width="100%" id="tableheader">
+        <tr>
+          <td align="left"><div align="center"><a href="http://www.parkstreet.org/sermon_audio">Park Street Church (USA) (747)</a></div></td>
+          <td></td>
+          <td align="right"><div align="center"><a href="http://audio.eden-cambridge.org">Eden Baptist Church (UK) (723)</div></td>
+        </tr>
+      </table>
+
+      <table id="books">
+      </table>
+    </div>
+      <div class="row">
+        <div class="span8 footer">by <a href="http://twitter.com/natematias">J. Nathan Matias</a>. Read more at <a href="http://civic.mit.edu/users/natematias">my blog</a> or <a href="http://natematias.com/portfolio">view my portfolio</a></div>
+      </div>
+
+    <!-- Inline Templates -->
+    <script type="text/template" id="book">
+      <tr id='<%=book.replace(" ", "_").replace(" ", "_")%>0' class="<%=book.replace(" ", "_").replace(" ", "_")%> bookrow"><td rowspan="<%=rows%>" class="bookname"><nobr><%=book%></nobr></td></tr>
+    </script>
+    <script type="text/template" id="book_row">
+      <tr id='<%=book.replace(" ", "_").replace(" ", "_")%><%=row%>' class="<%=book.replace(" ", "_").replace(" ", "_")%> bookrow"></tr>
+    </script>
+    <script type="text/template" id="chapter">
+      <td><a target="_blank" title="<%=chapter.occurrence%> sermons" href="http://www.biblegateway.com/passage/?search=<%=book.replace(' ','%20')%>+<%=chapter_name%>"><div class="chapter c<%=chapter.occurrence%> <%=book.replace(" ", "_").replace(" ", "_") + chapter_name%>"><%=chapter_name%></div></a></td>
+    </script>
+    <script type="text/template" id="chapter_filler">
+      <td><div class="chapter_filler"> </div></td>
+    </script>
+    
+
+    <script type="text/javascript" charset="utf-8" src="lib/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="styles/bootstrap/js/bootstrap.min.jstyles/bootstrap/js/bootstrap.min.jss"></script>
+<!--    <script type="text/javascript" charset="utf-8" src="lib/miso.ds.deps.min.0.2.0.js"></script>-->
+    <script type="text/javascript" charset="utf-8" src="lib/crossfilter.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="lib/underscore.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/backbone.js"></script>
+    <script type="text/javascript" charset="utf-8" src="app/sermon_view.js"></script>
+    <script language="Javascript" type="text/javascript">
+       var g_view = null;
+       var router = null;
+       function launch(){
+         s_view = new SermonView();
+         s_view.setElement($("#main_container"));
+         router = new GRouter();
+         Backbone.history.start({pushState: false, root: "index.html"})
+       }
+     </script>
+    <script type="text/javascript" charset="utf-8" src="app/routers.js"></script>
+  </body>
+</html>

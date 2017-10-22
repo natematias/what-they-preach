@@ -1,0 +1,124 @@
+.navbar-inner{
+  background-image: -moz-linear-gradient(center top, #eee, #ccc);
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+  background-color: #006E3C;
+  color:black;
+}
+
+.navbar .brand{
+  color:black;
+}
+
+.navbar .nav .active >a{
+  background:none;
+  /*background:#228E5C;*/
+  border-left:1px solid white;
+  border-right:1px solid white;
+}
+
+
+.navbar .nav .active >a:hover{
+  background:none;
+  background-image: -moz-linear-gradient(center top, #228E5C, #004E1C);
+  border-left:1px solid white;
+  border-right:1px solid white;
+}
+
+#main_container{
+  margin-top:50px;
+  padding-bottom:20px;
+  border-bottom:2px dotted #aaa;
+}
+
+#tableheader{
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.hero-unit p{
+  font-size:100%;
+}
+
+.footer{
+  margin-bottom:20px;
+  text-align:center;
+}
+
+td{
+  position:relative;
+  color:#666;
+}
+
+td.bookname{
+  font-size:12px;
+  text-align:center;
+}
+
+tr.selected{
+  background:#def;
+}
+
+tr.selected .chapter_filler{
+  background:#def;
+}
+
+div.chapter.selected{
+  border:1px solid #146;
+}
+
+.chapter,.chapter_filler{
+  padding-left:1px;
+  font-size:10px;
+  line-height:15px;
+  width:15px;
+  height:15px;
+  min-width:15px;
+  min-width:15px;
+  max-width:15px;
+  max-height:15px;
+  overflow:hidden;
+  z-index:10;
+  border-radius:1px;
+}
+
+.chapter{
+  cursor:pointer;
+}
+
+/*div.chapter:hover{
+  position:absolute;
+  font-size:12px;
+  line-height:14px;
+  overflow:visible;
+  width:60px;
+  max-width:60px;
+  max-height:30px;
+  height:30px;
+  z-index:100;
+  margin-top:-8px;
+  margin-left:-8px;
+}*/
+
+.chapter_filler{
+  background:white;
+}
+
+.chapter.c0{color:#888; background:#fff; border:1px solid #ccc;}
+.chapter.c1{color:#333; background:#ccc; border:1px solid #ccc;}
+.chapter.c2{color:#333; background:#aaa; border:1px solid #aaa;}
+.chapter.c3{color:#333; background:#999; border:1px solid #999;}
+.chapter.c4{color:#333; background:#888; border:1px solid #888;}
+.chapter.c5{color:#333; background:#777; border:1px solid #777;}
+.chapter.c6{color:#eee; background:#696969; border:1px solid #696969;}
+.chapter.c7{color:#eee; background:#666; border:1px solid #666;}
+.chapter.c8{color:#eee; background:#595959; border:1px solid #595959;}
+.chapter.c9{color:#eee; background:#555; border:1px solid #555;}
+.chapter.c10{color:#eee; background:#494949; border: 1px solid #49494949}
+.chapter.c11{color:#eee; background:#444; border:1px solid #444;}
+.chapter.c12{color:#eee; background:#393939; border: 1px solid #393939;}
+.chapter.c13{color:#eee; background:#333; border: 1px solid #333;}
+.chapter.c14{color:#eee; background:#292929; border:1px solid #292929}
+.chapter.c15{color:#eee; background:#222; border:1px solid #222;}
+.chapter.c16{color:#eee; background:#111; border:1px solid #111;}
+.chapter.c17{color:#eee; background:#090909; border:1px solid #090909;}
+.chapter.c18{color:#eee; background:#000; border:1px solid #000;}
